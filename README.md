@@ -11,7 +11,7 @@ A Nagios plugin to check for WordPress version updates on a remote server withou
 
 - Install the Wordpress plugin as you would usually for any other Wordpress plugin.
 - When installed and activated go to `Settings -> Nagios` and enter the IP Address of your Nagios Server
-- Copy `check\_wp\_update` to your Nagios plugins folder. For me, it's on `/usr/lib64/nagios/plugins`
+- Copy `check_wp_update` to your Nagios plugins folder. For me, it's on `/usr/lib64/nagios/plugins`
 - Create a service command template
 - Create a service check on your host
 
