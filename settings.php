@@ -22,7 +22,7 @@ class FB_Nagios_WP_Update_Checker_Settings {
     }
 
     function admin_menu() {
-        add_options_page( 'Nagios', 'Nagios', 'manage_themes', 'nagios-wordpress-update-checker-settings', array($this, 'plugin_page') );
+        add_options_page( 'Nagios', 'Nagios', 'manage_options', 'nagios-wordpress-update-checker-settings', array($this, 'plugin_page') );
     }
 
     function get_settings_sections() {
