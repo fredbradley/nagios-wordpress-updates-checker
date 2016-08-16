@@ -1,4 +1,4 @@
-Nagios-WordPress-Updates-Checker
+Nagios WordPress Updates Checker
 ===============
 
 ### TL;DR
