@@ -1,0 +1,3 @@
+[submodule "nagios-check"]
+	path = nagios-check
+	url = https://github.com/fredbradley/Nagios-WordPress-Update
