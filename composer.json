@@ -1,0 +1,20 @@
+{
+  "name": "fredbradley/nagios-wordpress-update-checker",
+  "description": "A Wordpress Plugin that works with Nagios to check for out of date plugins, theme and core",
+  "require": {
+    "yahnis-elsts/plugin-update-checker": "^4.1",
+    "tareq1988/wordpress-settings-api-class": "dev-master"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Fred Bradley",
+      "email": "hello@fredbradley.co.uk"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "FredBradley\\WPUpdateChecker\\": "src"
+    }
+  }
+}

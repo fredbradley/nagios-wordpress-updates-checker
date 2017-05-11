@@ -1,19 +1,15 @@
 <?php
 /*
 Plugin Name: Nagios Wordpress Updates Checker
-Description: 
+Description: Nagios Wordpress Updates Checker
 Author: Fred Bradley
-Version: 1.0
+Version: 1.3.6
 Author URI: http://fred.im/
 */
 
-require_once(dirname(__FILE__).'/settingsapiwrapper.php');
-require_once(dirname(__FILE__).'/settings.php');
+namespace FredBradley\WPUpdateChecker;
 
-class FB_Nagios_WP_Update_Checker {
+require_once 'vendor/autoload.php';
 
-	function __construct() {
-	}
-	
-}
-new FB_Nagios_WP_Update_Checker();
+$settings_api = new LoadSettings();
+
