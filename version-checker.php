@@ -68,6 +68,19 @@ foreach ($core->updates as $core_update)
 	}
 }
 
+/* 
+ * There are sometimes plugins that we want to ignore from the Nagios check,
+ * largely because there's nothing that we can do about them. For example premium
+ * plugins like Visual Composer or Rev Slider that come bundled with a theme but we 
+ * can't update ourselves!
+ */
+$ignored_plugins = array(
+	"js_composer/js_composer.php"
+);
+foreach ($ignored_plugins as $ignore_plugin):
+	unset($plugins->response[$ignore_plugin]);
+endforeach;
+ 
 $plugin_available = (count($plugins->response) > 0);
 $theme_available = (count($themes->response) > 0);
 
