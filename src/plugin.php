@@ -11,7 +11,7 @@ class Plugin {
 
 	public function plugin_update_check($plugin_name) {
 		$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-			'https://github.com/fredbradley/'.$plugin_name,
+			'https://github.com/fredbradley/'.$plugin_name.'/',
 			dirname(dirname(__FILE__)).'/'.$plugin_name.'.php',
 			$plugin_name
 		);
