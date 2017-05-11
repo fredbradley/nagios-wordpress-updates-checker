@@ -86,7 +86,7 @@ class Check {
 
 	public function check() {
 		$this->plugin_available = (count($this->plugins->response) > 0);
-		$this->theme_available = (count($this->plugins->response) > 0);
+		$this->theme_available = (count($this->themes->response) > 0);
 
 		$text = array();
 		if ($this->core_available)
