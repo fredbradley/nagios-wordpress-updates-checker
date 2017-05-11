@@ -7,6 +7,8 @@ namespace FredBradley\WPUpdateChecker;
  * But you can't help everyone!
  */
 require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/wp-load.php');
+require_once('src/class.Settings.php');
+require_once('src/class.Check.php');
 
 $settings = new Settings();
 
@@ -34,6 +36,7 @@ if (! in_array($remote_ip, $allowed_ips))
 global $wp_version;
 
 $check = new Check($wp_version);
+var_dump($check);
 
 echo $check->status."#".$check->text;
 

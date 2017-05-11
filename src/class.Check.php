@@ -13,6 +13,7 @@ class Check {
 	private $core_available = FALSE;
 	private $plugin_available = FALSE;
 	private $theme_available = FALSE;
+	private $ip_address = FALSE;
 
 	public $status = "OK";
 	public $text;
@@ -20,7 +21,7 @@ class Check {
 	private function setting($setting) {
 
 		$nagios_settings = get_option('nagios-settings');
-
+		$this->ip_address = $nagios_settings['nagios_server_ip'];
 		return $nagios_settings[$setting];
 	}
 

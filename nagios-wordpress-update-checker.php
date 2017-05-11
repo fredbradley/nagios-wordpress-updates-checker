@@ -13,3 +13,8 @@ require_once 'vendor/autoload.php';
 
 $settings_api = new LoadSettings();
 
+
+new Plugin();
+
+
+

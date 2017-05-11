@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'FredBradley\\WPUpdateChecker\\Check' => $baseDir . '/src/class.Check.php',
     'FredBradley\\WPUpdateChecker\\LoadSettings' => $baseDir . '/src/settings.php',
+    'FredBradley\\WPUpdateChecker\\Plugin' => $baseDir . '/src/plugin.php',
     'FredBradley\\WPUpdateChecker\\Settings' => $baseDir . '/src/class.Settings.php',
     'WeDevs_Settings_API' => $vendorDir . '/tareq1988/wordpress-settings-api-class/src/class.settings-api.php',
 );
