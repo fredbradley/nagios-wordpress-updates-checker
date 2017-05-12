@@ -27,16 +27,17 @@ class Check {
 
 	public function __construct($wp_version) {
 		$this->wp_version = $wp_version;
+		if ($this->check_referrer() === true):
+			wp_version_check();
+			wp_update_plugins();
+			wp_update_themes();
 
-		wp_version_check();
-		wp_update_plugins();
-		wp_update_themes();
+			$this->get_transients();
 
-		$this->get_transients();
+			$this->removed_ignored_plugins();
 
-		$this->removed_ignored_plugins();
-
-		$this->check();
+			$this->check();
+		endif;
 	}
 
 	private function get_transients() {
@@ -83,7 +84,29 @@ class Check {
 			endforeach;
 		endif;
 	}
+	private function check_referrer() {
+		$allowed_ips = array(
+			$this->setting('nagios_server_ip')
+		);
+		// If your Wordpress installation is behind a Proxy like Nginx use 'HTTP_X_FORWARDED_FOR'
+		if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && !empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+			$remote_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		} else {
+			$remote_ip = $_SERVER['REMOTE_ADDR'];
+		}
 
+		// Check if the requesting server is allowed
+		if (! in_array($remote_ip, $allowed_ips))
+		{
+			$this->text = "IP $remote_ip not allowed.";
+			$this->status = "CRITICAL";
+
+			return false;
+		} else {
+			return true;
+		}
+
+	}
 	public function check() {
 		$this->plugin_available = (count($this->plugins->response) > 0);
 		$this->theme_available = (count($this->themes->response) > 0);
