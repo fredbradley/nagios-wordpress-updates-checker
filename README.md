@@ -31,4 +31,17 @@ __Service Check__
 	        check_command           check_wp_update!http://example.com/wp-content/plugins/nagios-wordpress-updates-checker/check-version.php
 	        }
 
+### Set the Settings
+Find the settings page "Nagios Checker" under the main "Settings" menu in Wordpress.
+
+There are two settings to set: 
+#### Nagios Server IP Address
+In here, put the IP address (IPv4) of your Nagios Server (from where the checks will be coming from). This measure makes sure that only checks from your Nagios server are allowed and all other attempts are failed.
+
+#### Ignored Plugins
+I have found that sometimes you might not be able to update a particularly plugin (perhaps you don't have the license for updates anymore). For example you might have bought a theme from ThemeForest which comes with Visual Composer bundled in. But you can't update Visual Composer yourself. For these plugins, just check them on this checklist and they will be ignored from the Nagios Check. 
+
+**NB: They will still show up on the Wordpress Updates page when you log in, but will no longer affect your Nagios Checks**
+
+### Credit Nods
 Inspired by check\_wp\_version by @hteske. Original [here](http://exchange.nagios.org/directory/Plugins/CMS-and-Blog-Software/Wordpress/check_wp_version/details)
