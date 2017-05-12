@@ -1,9 +1,6 @@
 Nagios WordPress Updates Checker
 ===============
 
-## TL;DR
-This is a Wordpress Plugin that does the same thing as https://github.com/fredbradley/Nagios-WordPress-Update/. The difference being it's installable as a Wordpress Plugin.
-
 ## Requirements
  - Wordpress
  - Nagios Server (with permissions to edit checks and restart the service)
