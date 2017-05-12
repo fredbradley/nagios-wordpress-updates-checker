@@ -32,7 +32,7 @@ class LoadSettings {
 		$sections = array(
 			array(
 				'id' => 'nagios-settings',
-				'title' => __( 'Nagios', 'wedevs' )
+				'title' => __( 'Nagios Checker Settings', 'wedevs' )
 			),
 
 		);
@@ -56,7 +56,7 @@ class LoadSettings {
 				),
 				array(
 					'name' => 'ignored_plugins',
-					'label' => __( 'Ignored Plugins', 'fredbradley'),
+					'label' => __( 'Ignore Plugins from Nagios Check', 'fredbradley'),
 					'type' => 'multicheck',
 	                'options' => $this->get_plugin_list()
 				)
@@ -79,10 +79,26 @@ class LoadSettings {
 	function plugin_page() {
 		echo '<div class="wrap">';
 
-		$this->settings_api->show_navigation();
+		if (count($this->get_settings_sections()) > 1):
+			$this->settings_api->show_navigation();
+		endif;
+		$this->instructions();
 		$this->settings_api->show_forms();
 
 		echo '</div>';
+	}
+
+	public function instructions() {
+		echo '<div style="padding:5px;background:orange;">';
+		echo '<h3>Instructions</h3>';
+		echo '<ol>';
+		echo '<li>Please read the <a href="https://github.com/fredbradley/nagios-wordpress-updates-checker" target="_blank">README.md</a></li>';
+		echo '<li>You will need to download the <a href="'.plugins_url( 'check_wp_update', dirname(__FILE__) ).'" target="_blank">check_wp_update</a> from the plugin package and copy it to your Nagios Server. Instructions are on the README.md</li>';
+		echo '<li>If you have any questions, suggestions, or issues please add them as <a href="https://github.com/fredbradley/nagios-wordpress-updates-checker/issues" target="_blank">Issues to Github here</a>. If you\'re a fancy pants developer and can see where improvements can be made, please feel free to <a href="https://github.com/fredbradley/nagios-wordpress-updates-checker/network" target="_blank">fork</a> and <a href="https://github.com/fredbradley/nagios-wordpress-updates-checker/pulls" target="_blank">submit a Pull Request</a>.</li>';
+		echo '</ol>';
+		echo '<p><em>If you find this plugin useful and are the sort person that is lovely, please <strong><a href="https://paypal.me/fredbradley">consider donating</a></strong> a fraction of the amount that it would cost to hire a developer to make this for you!</em></p>';
+		echo '</div>';
+		echo '<hr />';
 	}
 
 	/**
