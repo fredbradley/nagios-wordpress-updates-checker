@@ -6,7 +6,7 @@ use Puc_v4_Factory;
 class Plugin {
 	public function __construct() {
 		add_action( 'rest_api_init', array($this,'wpshout_register_routes') );
-		$this->plugin_update_check('nagios-wordpress-update-checker');
+		$this->plugin_update_check('nagios-wordpress-updates-checker');
 	}
 
 	public function plugin_update_check($plugin_name) {
