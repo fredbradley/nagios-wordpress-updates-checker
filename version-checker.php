@@ -36,7 +36,6 @@ if (! in_array($remote_ip, $allowed_ips))
 global $wp_version;
 
 $check = new Check($wp_version);
-var_dump($check);
 
 echo $check->status."#".$check->text;
 
