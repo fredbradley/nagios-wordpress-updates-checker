@@ -30,6 +30,8 @@ __Command Template__
 	        }
  
  **NB: Change `http://example.com` to whatever your site's URL is!**
+ 
+ **NB: Take a close look at the `service` definition. You'll need to change the `host_name` and in some cases you might have a different `use` value that you'd wise to use. And the `service_description` is what will show up on your Nagios Alert so make it something meaningful!**
 
 ### 2. Now, Set up on your Wordpress Site
 - Take a zip download of the [latest release](https://github.com/fredbradley/nagios-wordpress-updates-checker/releases/tag/1.7.0)
