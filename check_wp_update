@@ -1,4 +1,5 @@
 #!/bin/bash
+# Version 1.7.0 (Please check against: https://github.com/fredbradley/nagios-wordpress-updates-checker/blob/master/check_wp_update )
 #
 # The Nagios Check that works with https://github.com/fredbradley/nagios-wordpress-updates-checker/
 #
@@ -28,7 +29,7 @@ function jsonValue
 
 function print_usage
 {
-	echo "Usage: $PROGNAME <URL>" 
+	echo "Usage: $PROGNAME <URL>"
 }
 
 if [ ! $1 ]; then
@@ -69,7 +70,7 @@ else
 			text=`echo $result | cut -d\# -f2`
 		;;
 	esac
-	
+
 	# Echo out the output
 	echo "$status - $text"
 
@@ -86,3 +87,4 @@ else
 			;;
 	esac
 fi
+
