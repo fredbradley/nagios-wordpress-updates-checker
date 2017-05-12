@@ -1,5 +1,6 @@
 Nagios WordPress Updates Checker
 ===============
+https://github.com/fredbradley/nagios-wordpress-updates-checker/
 
 ## Requirements
  - Wordpress

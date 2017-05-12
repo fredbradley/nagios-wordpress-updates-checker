@@ -14,6 +14,7 @@ This is a plugin that contains some scripts that Nagios can poll to see if you h
 
 The benefit being that if you monitor your systems using Nagios or a Nagdash dashboard you will see straight away when there are updates available rather than waiting until you log in. 
 
+More Info: https://github.com/fredbradley/nagios-wordpress-updates-checker/
 
 == Installation ==
 
@@ -22,8 +23,8 @@ The benefit being that if you monitor your systems using Nagios or a Nagdash das
 
 == Changelog ==
 
-= 1.3.1 =
-* Tidy up `readme.txt`
+= 1.7.5 =
+* Public Release
 
-= 1.3.0 =
-* Stable Install. Tidy code
+= 1.7.0 =
+* Beta
