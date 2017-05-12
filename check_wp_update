@@ -1,4 +1,12 @@
 #!/bin/bash
+#
+# The Nagios Check that works with https://github.com/fredbradley/nagios-wordpress-updates-checker/
+#
+# NB: This version is for use with the /version-checker.php check. If you want to use the WP-JSON api check, please see:
+#
+# Credit Nods: Inspired by check_wp_version by @hteske. Original here: http://exchange.nagios.org/directory/Plugins/CMS-and-Blog-Software/Wordpress/check_wp_version/details
+
+
 
 CURL=`which curl`
 CURL_OPTS='--user-agent check-wp-updates-nagios-plugin --insecure'
@@ -21,7 +29,7 @@ if [ ! $1 ]; then
 	exit $STATE_CRITICAL
 fi
 
-# Check that we're getting a 200 OK message for the wp-version.php file on the remote host.
+# Check that we're getting a 200 OK message for the file file on the remote host.
 response=`$CURL $CURL_OPTS -I $1`
 if [[ $response != *"200 OK"* ]]; then
         echo 'CRITICAL - Checker Script not installed on remote host'
