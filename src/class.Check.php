@@ -32,7 +32,7 @@ class Check {
 		if (isset($_GET['allow_local']) && $_GET['allow_local']=="lacol_wolla")
 			$this->allow_local = true;
 		
-		if ($this->check_referrer() === true || $this->allow_local===true):
+		if ($this->allow_local === true || $this->check_referrer() === true):
 			wp_version_check();
 			wp_update_plugins();
 			wp_update_themes();
