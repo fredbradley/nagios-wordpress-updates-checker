@@ -27,7 +27,7 @@ class Check {
 
 	public function __construct($wp_version) {
 		$this->wp_version = $wp_version;
-		if ($this->check_referrer() === true || current_user_can('manage_options'):
+		if ($this->check_referrer() === true || current_user_can('manage_options')):
 			wp_version_check();
 			wp_update_plugins();
 			wp_update_themes();
