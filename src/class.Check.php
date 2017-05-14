@@ -83,12 +83,13 @@ class Check {
 
 		$ignored_plugins = $this->setting('ignored_plugins');
 
-		if (NULL !== $ignored_plugins):
+		if (is_array($ignored_plugins)):
 			foreach ($ignored_plugins as $ignore_plugin):
 				unset($this->plugins->response[$ignore_plugin]);
 			endforeach;
 		endif;
 	}
+
 	private function check_referrer() {
 		$allowed_ips = array(
 			$this->setting('nagios_server_ip')
@@ -112,6 +113,7 @@ class Check {
 		}
 
 	}
+
 	public function check() {
 		$this->plugin_available = (count($this->plugins->response) > 0);
 		$this->theme_available = (count($this->themes->response) > 0);
