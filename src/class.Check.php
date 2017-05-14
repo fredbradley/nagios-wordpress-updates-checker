@@ -20,14 +20,14 @@ class Check {
 
 	private function setting($setting) {
 
-		$nagios_settings = get_option('nagios-settings');
+		$nagios_settings = get_option('nagios-settings', ["nagios_server_ip" => "127.0.0.1"]);
 		$this->ip_address = $nagios_settings['nagios_server_ip'];
 		return $nagios_settings[$setting];
 	}
 
 	public function __construct($wp_version) {
 		$this->wp_version = $wp_version;
-		if ($this->check_referrer() === true):
+		if ($this->check_referrer() === true || current_user_can('manage_options'):
 			wp_version_check();
 			wp_update_plugins();
 			wp_update_themes();
