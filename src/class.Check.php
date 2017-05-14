@@ -21,7 +21,7 @@ class Check {
 
 	private function setting($setting) {
 
-		$nagios_settings = get_option('nagios-settings', ["nagios_server_ip" => "127.0.0.1"]);
+		$nagios_settings = get_option('nagios-settings', ["nagios_server_ip" => "127.0.0.1", "ignored_plugins"=>NULL]);
 		$this->ip_address = $nagios_settings['nagios_server_ip'];
 		return $nagios_settings[$setting];
 	}
