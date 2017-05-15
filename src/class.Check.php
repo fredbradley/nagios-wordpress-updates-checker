@@ -6,6 +6,7 @@ class Check {
 	private $plugin_updates = FALSE;
 	private $wp_version;
 	private $allow_local = FALSE;
+	private $plugin_details;
 
 	private $core = FALSE;
 	private $plugins = FALSE;
@@ -18,6 +19,7 @@ class Check {
 
 	public $status = "OK";
 	public $text;
+	public $version;
 
 	private function setting($setting) {
 
@@ -28,10 +30,13 @@ class Check {
 
 	public function __construct($wp_version) {
 		$this->wp_version = $wp_version;
-		
+		$this->plugin_details = get_plugin_data( dirname(dirname(__FILE__)).'/nagios-wordpress-updates-checker.php', false, false );
+		$this->version = $this->plugin_details['Version'];
+
+
 		if (isset($_GET['allow_local']) && $_GET['allow_local']=="lacol_wolla")
 			$this->allow_local = true;
-		
+
 		if ($this->allow_local === true || $this->check_referrer() === true):
 			wp_version_check();
 			wp_update_plugins();
@@ -132,8 +137,9 @@ class Check {
 			$this->status = 'CRITICAL';
 		} elseif ($this->theme_available || $this->plugin_available) {
 			$this->status = 'WARNING';
+		} else {
+			$text[] = "Nagios Checker Version: ".$this->version;
 		}
-
 		$this->text = implode(";", $text);
 	}
 
