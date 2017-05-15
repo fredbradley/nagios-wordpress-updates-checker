@@ -138,7 +138,7 @@ class Check {
 		} elseif ($this->theme_available || $this->plugin_available) {
 			$this->status = 'WARNING';
 		} else {
-			$text[] = "Nagios Checker Version: ".$this->version;
+			$text[] = "Nagios Checker Version ".$this->version;
 		}
 		$this->text = implode(";", $text);
 	}
