@@ -117,6 +117,7 @@ class Check {
 	}
 
 	public function check() {
+		$this->check_core();
 		$this->plugin_available = (count($this->plugins->response) > 0);
 		$this->theme_available = (count($this->themes->response) > 0);
 
