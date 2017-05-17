@@ -6,7 +6,6 @@ class Check {
 	private $plugin_updates = FALSE;
 	private $wp_version;
 	private $allow_local = FALSE;
-	private $plugin_details;
 
 	private $core = FALSE;
 	private $plugins = FALSE;
@@ -28,11 +27,9 @@ class Check {
 		return $nagios_settings[$setting];
 	}
 
-	public function __construct($wp_version) {
+	public function __construct($wp_version, $plugin_version) {
 		$this->wp_version = $wp_version;
-		$this->plugin_details = get_plugin_data( dirname(dirname(__FILE__)).'/nagios-wordpress-updates-checker.php', false, false );
-		$this->version = $this->plugin_details['Version'];
-
+		$this->version = $plugin_version;
 
 		if (isset($_GET['allow_local']) && $_GET['allow_local']=="lacol_wolla")
 			$this->allow_local = true;
