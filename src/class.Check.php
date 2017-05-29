@@ -10,10 +10,12 @@ class Check {
 	private $core = FALSE;
 	private $plugins = FALSE;
 	private $themes = FALSE;
+	private $translations = FALSE;
 
 	private $core_available = FALSE;
 	private $plugin_available = FALSE;
 	private $theme_available = FALSE;
+	private $translation_available = FALSE;
 	private $ip_address = FALSE;
 
 	public $status = "OK";
@@ -65,6 +67,9 @@ class Check {
 			$this->plugins = get_site_transient('update_plugins');
 			$this->themes = get_site_transient('update_themes');
 		}
+
+		$this->translations = wp_get_translation_updates();
+
 	}
 
 	private function check_core() {
@@ -120,6 +125,7 @@ class Check {
 		$this->check_core();
 		$this->plugin_available = (count($this->plugins->response) > 0);
 		$this->theme_available = (count($this->themes->response) > 0);
+		$this->translation_available = (count($this->translations) > 0);
 
 		$text = array();
 		if ($this->core_available)
@@ -131,9 +137,12 @@ class Check {
 		if ($this->theme_available)
 			$text[] = 'Theme updates available';
 
+		if ($this->translation_available)
+			$text[] = 'Translation updates available';
+
 		if ($this->core_available) {
 			$this->status = 'CRITICAL';
-		} elseif ($this->theme_available || $this->plugin_available) {
+		} elseif ($this->theme_available || $this->plugin_available || $this->translation_available) {
 			$this->status = 'WARNING';
 		} else {
 			$text[] = "Nagios Checker Version ".$this->version;
