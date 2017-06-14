@@ -132,13 +132,13 @@ class Check {
 			$text[] = 'Core updates available';
 
 		if ($this->plugin_available)
-			$text[] = 'Plugin updates available';
+			$text[] = count($this->plugins->response).' Plugin updates available';
 
 		if ($this->theme_available)
-			$text[] = 'Theme updates available';
+			$text[] = count($this->themes->response).' Theme updates available';
 
 		if ($this->translation_available)
-			$text[] = 'Translation updates available';
+			$text[] = count($this->translations).' Translation updates available';
 
 		if ($this->core_available) {
 			$this->status = 'CRITICAL';
