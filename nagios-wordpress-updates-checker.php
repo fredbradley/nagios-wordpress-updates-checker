@@ -5,6 +5,7 @@ Description: Nagios Wordpress Updates Checker
 Author: Fred Bradley
 Version: 1.9.1
 Author URI: http://fred.im/
+Network: true
 */
 
 namespace FredBradley\WPUpdateChecker;
