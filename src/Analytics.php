@@ -32,7 +32,7 @@ class Analytics {
 
 			frbtagnagios('config', '<?php echo self::$analytics_id; ?>');
 			frbtagnagios('event', 'load', {
-				'event_category': <?php echo get_bloginfo('name'); ?>,
+				'event_category': "<?php echo get_bloginfo('name'); ?>",
 				'event_label': url,
 				'transport_type': 'beacon'
 			});
