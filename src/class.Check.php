@@ -21,6 +21,7 @@ class Check {
 	public $status = "OK";
 	public $text;
 	public $version;
+	public $analytics_id;
 
 	private function setting($setting) {
 
@@ -32,6 +33,7 @@ class Check {
 	public function __construct($wp_version, $plugin_version) {
 		$this->wp_version = $wp_version;
 		$this->version = $plugin_version;
+		$this->analytics_id = Analytics::$analytics_id;
 
 		if (isset($_GET['allow_local']) && $_GET['allow_local']=="lacol_wolla")
 			$this->allow_local = true;

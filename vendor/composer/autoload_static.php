@@ -25,10 +25,6 @@ class ComposerStaticInitd73febc21cdcc03835097fe2196d3064
     );
 
     public static $classMap = array (
-        'FredBradley\\WPUpdateChecker\\Check' => __DIR__ . '/../..' . '/src/class.Check.php',
-        'FredBradley\\WPUpdateChecker\\LoadSettings' => __DIR__ . '/../..' . '/src/settings.php',
-        'FredBradley\\WPUpdateChecker\\Plugin' => __DIR__ . '/../..' . '/src/plugin.php',
-        'FredBradley\\WPUpdateChecker\\Settings' => __DIR__ . '/../..' . '/src/class.Settings.php',
         'WeDevs_Settings_API' => __DIR__ . '/..' . '/tareq1988/wordpress-settings-api-class/src/class.settings-api.php',
     );
 

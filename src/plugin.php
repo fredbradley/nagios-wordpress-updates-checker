@@ -7,7 +7,9 @@ class Plugin {
 	private $version;
 	public function __construct($version) {
 		$this->version = $version;
+		Analytics::run();
 		add_action( 'rest_api_init', array($this,'wpshout_register_routes') );
+
 		$this->plugin_update_check('nagios-wordpress-updates-checker');
 	}
 
