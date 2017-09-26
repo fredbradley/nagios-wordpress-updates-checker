@@ -2,8 +2,8 @@
 Contributors: fredbradley
 Donate link: http://paypal.me/fredbradley
 Requires at least: 3.0.1
-Tested up to: 4.7.5
-Stable tag: 4.7.5
+Tested up to: 4.8.2
+Stable tag: 4.8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,8 +24,4 @@ More Info: https://github.com/fredbradley/nagios-wordpress-updates-checker/
 
 == Changelog ==
 
-= 1.7.5 =
-* Public Release
-
-= 1.7.0 =
-* Beta
+Please visit https://github.com/fredbradley/nagios-wordpress-updates-checker/ for more information.
