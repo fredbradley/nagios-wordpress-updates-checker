@@ -7,8 +7,8 @@ namespace FredBradley\WPUpdateChecker;
  * But you can't help everyone!
  */
 require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/wp-load.php');
-require_once('src/class.Settings.php');
-require_once('src/class.Check.php');
+require_once('src/Settings.php');
+require_once('src/Check.php');
 
 
 /*
