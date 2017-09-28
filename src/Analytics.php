@@ -11,9 +11,9 @@ namespace FredBradley\WPUpdateChecker;
 
 class Analytics {
 
-	public static $analytics_id;
+	public static $analytics_id = "UA-24018806-32";
 
-	public static function run( string $analytics_id="UA-24018806-32" ) {
+	public static function run( string $analytics_id=null ) {
 		self::$analytics_id = $analytics_id;
 
 		add_action('wp_head', array(self::class, 'googleanalytics'));
