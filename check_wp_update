@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version 1.9.2 (Please check against: https://github.com/fredbradley/nagios-wordpress-updates-checker/blob/master/check_wp_update )
+# Version 1.9.11 (Please check against: https://github.com/fredbradley/nagios-wordpress-updates-checker/blob/master/check_wp_update )
 #
 # The Nagios Check that works with https://github.com/fredbradley/nagios-wordpress-updates-checker/
 #
@@ -72,7 +72,14 @@ else
 	esac
 
 	# Echo out the output
-	echo "$status - $text"
+	case $status in 
+		CRITIAL|WARNING|OK)
+			echo "$status - $text"
+			;;
+		*)
+			echo "INVALID OUTPUT"
+			;;
+		esac
 
 	# Finish in a Nagios friendly way!
 	case "$status" in
@@ -85,6 +92,8 @@ else
 		OK)
 			exit $STATE_OK
 			;;
+		*)
+			exit $STATE_CRITICAL
+			;;
 	esac
 fi
-
