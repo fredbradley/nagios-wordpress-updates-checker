@@ -14,10 +14,11 @@ class Analytics {
 	public static $analytics_id = "UA-24018806-32";
 
 	public static function run( string $analytics_id=null ) {
-		self::$analytics_id = $analytics_id;
+		if ($analytics_id !== null)
+			self::$analytics_id = $analytics_id;
 
-		add_action('wp_head', array(self::class, 'googleanalytics'));
-		add_action( 'admin_head', array(self::class, 'googleanalytics'));
+		add_action('wp_head', array(__CLASS__, 'googleanalytics'));
+		add_action( 'admin_head', array(__CLASS__, 'googleanalytics'));
 	}
 
 	public static function googleanalytics() {
