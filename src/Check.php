@@ -27,6 +27,9 @@ class Check {
 
 		$nagios_settings = get_option('nagios-settings', ["nagios_server_ip" => "127.0.0.1", "ignored_plugins"=>NULL]);
 		$this->ip_address = $nagios_settings['nagios_server_ip'];
+		if ($setting === "ignored_plugins" && !isset($nagios_settings[$setting])) {
+			return null;
+		}
 		return $nagios_settings[$setting];
 	}
 
