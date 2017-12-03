@@ -33,7 +33,7 @@ class Analytics {
 		<script async src="//www.googletagmanager.com/gtag/js?id=<?php echo self::$analytics_id; ?>"></script>
 		<script>
 			var url = '<?php echo $_SERVER['REQUEST_URI']; ?>';
-			var loadType = '<?php echo $loadtype; ?>';
+			var loadType = '<?php echo $loadType; ?>';
 			
 			window.dataLayer = window.dataLayer || [];
 			function frbtagnagios(){dataLayer.push(arguments)};
