@@ -8,27 +8,28 @@
 
 namespace FredBradley\WPUpdateChecker;
 
-
 class Analytics {
 
-	public static $analytics_id = "UA-24018806-32";
 
-	public static function run( string $analytics_id=null ) {
-		if ($analytics_id !== null)
+	public static $analytics_id = 'UA-24018806-32';
+
+	public static function run( string $analytics_id = null ) {
+		if ( $analytics_id !== null ) {
 			self::$analytics_id = $analytics_id;
+		}
 
-		add_action('wp_head', array(__CLASS__, 'googleanalytics'));
-		add_action( 'admin_head', array(__CLASS__, 'googleanalytics'));
+		add_action( 'wp_head', array( __CLASS__, 'googleanalytics' ) );
+		add_action( 'admin_head', array( __CLASS__, 'googleanalytics' ) );
 	}
 
 	public static function googleanalytics() {
-		if (is_admin()) {
-			$loadType = "adminLoad";
+		if ( is_admin() ) {
+			$loadType = 'adminLoad';
 		} else {
-			$loadType = "frontendLoad";
+			$loadType = 'frontendLoad';
 		}
-		
-	?>
+
+		?>
 		<!-- Global Site Tag (gtag.js) - Google Analytics -->
 		<script async src="//www.googletagmanager.com/gtag/js?id=<?php echo self::$analytics_id; ?>"></script>
 		<script>
@@ -42,7 +43,7 @@ class Analytics {
 			frbtagnagios('config', '<?php echo self::$analytics_id; ?>');
 			frbtagnagios('event', loadType, {
 				'send_to': ["<?php echo self::$analytics_id; ?>"],
-				'event_category': "<?php echo get_bloginfo('name'); ?>",
+				'event_category': "<?php echo get_bloginfo( 'name' ); ?>",
 				'event_label': url,
 				'transport_type': 'beacon'
 			});
