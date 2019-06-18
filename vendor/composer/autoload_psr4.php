@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'FredBradley\\WPUpdateChecker\\' => array($baseDir . '/src'),
+    'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => array($vendorDir . '/dealerdirect/phpcodesniffer-composer-installer/src'),
 );

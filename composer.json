@@ -16,5 +16,11 @@
     "psr-4": {
       "FredBradley\\WPUpdateChecker\\": "src"
     }
+  },
+  "require-dev": {
+    "phpcompatibility/php-compatibility": "^9.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3",
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "wp-coding-standards/wpcs": "^2.1"
   }
 }
