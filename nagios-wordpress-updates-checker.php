@@ -3,7 +3,7 @@
 Plugin Name: Nagios WordPress Updates Checker
 Description: Nagios WordPress Updates Checker
 Author: Fred Bradley
-Version: 1.10.1
+Version: 1.10.3
 Author URI: http://fred.im/
 Network: true
  */
