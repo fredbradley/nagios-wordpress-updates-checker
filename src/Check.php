@@ -23,6 +23,7 @@ class Check {
 	public $text;
 	public $version;
 	public $analytics_id;
+	public $host;
 
 	private function setting( $setting ) {
 
@@ -44,6 +45,7 @@ class Check {
 		$this->wp_version   = $wp_version;
 		$this->version      = $plugin_version;
 		$this->analytics_id = Analytics::$analytics_id;
+		$this->host = parse_url(get_site_url())['host'];
 
 		if ( isset( $_GET['allow_local'] ) && $_GET['allow_local'] == 'lacol_wolla' ) {
 			$this->allow_local = true;
